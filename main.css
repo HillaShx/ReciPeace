@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+html {
+  background-color: #45a5a5;
+  display: block;
+}
+
+section {
+  background-color: #45a5a5;
+  padding: 20px 0 0 20px;
+  color: #336;
+}
+
+.title {
+  background-color: #45a5a5;
+  width: 160px;
+  color: #00ff00;
+  font-size: 10px;
+  padding-right: 20px;
+}
+
+#logo {
+  position: fixed;
+  width: 12%;
+  height: 53px;
+  padding: 20px 0;
+  background-color: #45a5a5;
+  z-index: 2;
+}
+
+#navbar {
+  position: fixed;
+  display: flex;
+  margin-left: 12%;
+  text-align: right;
+  width: 88%;
+  padding: 20px 0;
+  background-color: #789;
+  z-index: 2;
+}
+
+#navbar a , #navbar p {
+  text-decoration: none;
+  padding: 10px 40px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+
+#navbar p {
+  text-align: right;
+  padding: 10px 10px 10px 10px;
+  font-size: 16px;
+}
+
+#navbar a:hover {
+  background-color: #45a4a4;
+}
+
+#navbar a:focus {
+  background-color: #45a4a4;
+}
+
+.content {
+  padding: 100px 190px 0 190px;
+  display: block;
+}
+
+#welcome-section {
+  margin-top: -60px;
+}
+
+.project-tile {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.project-box {
+  background-color: #789;
+  height: 300px;
+  width: 300px;
+  margin: 0 12px;
+}
+
+.project-box img {
+ position: block;
+  height: 290px;
+ width: 290px;
+  margin: 5px;
+}
+
+h1 {
+  font-family: Helvetica;
+  padding: 10px 0;
+}
+
+main {
+  padding-top: 57px;
+}
+
+#profile-link {
+  text-decoration: none;
+  color: #cee;
+}
+
+@media screen and (max-width: 600px) {
+  .project-box {
+    position: block;
+  }
+}
