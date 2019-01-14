@@ -1,2 +1,2 @@
-# ReciPeace
-Recipes that give you a peace of mind.
+# RecipEase
+Easy cooking.
