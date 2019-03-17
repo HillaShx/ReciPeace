@@ -1,0 +1,32 @@
+{
+  "Gluten": [
+      "Wheat Flour","Beer"
+  ],
+  "Sugar": [
+    "White sugar","Brown sugar"
+  ],
+  "Soy": [
+    "Soy sauce","Adamame","Tofu"
+  ],
+  "Peanut": [
+    "Peanut"
+  ],
+  "Dairy": [
+    "Cow milk","Goat milk","Condensed milk","Butter","Cream","Cheese"
+  ],
+  "Egg": [
+    "Egg"
+  ],
+  "Wheat": [
+    "Couscous","Beer"
+  ],
+  "Fish": [
+    "Salmon","Halibut","Tuna","Anchovy","Basa","Bass","Sablefish","Blowfish","Bluefish","Bombay duck","Bream","Brill","Butter fish","Catfish","Cod","Dogfish","Dorade","Eel","Flounder","Grouper","Haddock","Hake","Herring","Ilish","John dory","Lamprey","Lingcod","Mackerel","Mahi mahi","Monkfish","Mullet","Orange roughy","Parrotfish","Patagonian toothfish","Pike","Pilchard","Pollock","Pomfret","Pompano","Sandabb","Sardine","Shad","Shark","Skate","Smelt","Snakehead","Snapper","Rockfish","Sole","Sprat","Suiter fish","Sturgeon","Surimi","Swordfish","Tilapia","Tilefish","Trout","Turbot","Wahoo","Whitefish","Whiting"
+  ],
+  "Shellfish": [
+    "Shrimp","Crab","Crayfish","Langostino","Lobster","Prawn"
+  ],
+  "Celery": [
+    "Celery"
+  ]
+}
