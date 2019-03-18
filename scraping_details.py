@@ -16,7 +16,7 @@ def title(recipe_id):
 
 def total_time(recipe_id):
     soup = BeautifulSoup(open(filepath+"html_pages/"+recipe_id+".html"), "lxml")
-    total_time = soup.find('span', { 'class' : 'ready-in-time__container' }).span.text
+    total_time = soup.find('span', { 'class' : 'ready-in-time' }).text
     return total_time
 
 def img_dl(recipe_id):
@@ -66,14 +66,16 @@ def download_html():
     for recipe in recipe_ids:
         get_whole_html(recipe)
 
-def iterate_pages():
-    with open("recipe_ids.txt","r") as file:
-        recipe_ids = [x[:-2].replace("/","-") for x in file.readlines()]
-    recipe = "232420-pork-chop-skillet"
-    x = (title(recipe),ingredients(recipe),total_time(recipe),instructions(recipe),rating(recipe),serving(recipe))
-    print(x)
+
+# def iterate_pages():
+#     with open("recipe_ids.txt","r") as file:
+#         recipe_ids = [x[:-2].replace("/","-") for x in file.readlines()]
+#     for recipe in recipe_ids:
+#         x = (title(recipe),ingredients(recipe),total_time(recipe),instructions(recipe),rating(recipe),serving(recipe))
+#
+#     print(x)
     # for recipe in recipe_ids:
 
 
-iterate_pages()
+# iterate_pages()
 # total_time("232420-pork-chop-skillet")

@@ -17,7 +17,6 @@
 137650/greek-lentil-soup-fakes/
 132785/vegetarian-kale-soup/
 105581/tomato-mint-quinoa-salad/
-8722/mexican-chicken-i/
 245119/biscuits-and-gravy-casserole/
 246841/spicy-lime-avocado-soup/
 26655/smothered-meatballs/
@@ -60,7 +59,6 @@
 17690/sweet-dinner-rolls/
 74657/blueberry-zucchini-bread/
 214651/donut-muffins/
-79470/simple-scones/
 16955/homesteader-cornbread/
 20163/grandma-johnsons-scones/
 11836/stuffed-shells-i/
