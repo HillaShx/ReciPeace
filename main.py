@@ -1,9 +1,9 @@
-import mysql.connector
-from scraping_details import *
-# import json
-# from recipe_reader import get_recipe_items
+# import mysql.connector
+from flask import Flask, render_template, url_for
 
 """
+===MYSQL===
+
 to make a new mysql container
 docker run --detach --name=test-mysql -v /home/hillash/Documents/SheCodes-Project/mysql-local:/var/lib/mysql --env="MYSQL_ROOT_PASSWORD=root" --publish 3306:3306 mysql
 
@@ -12,35 +12,64 @@ docker container start e2
 
 to connect to the mysql container bash
 docker exec -it e2 /bin/bash
+
+===FLASK===
+export FLASK_APP=main.py
+export FLASK_DEBUG=1
+flask run
 """
 
-recipe_db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="root",
-    database="Recipease"
-)
+# recipe_db = mysql.connector.connect(
+#     host="localhost",
+#     user="root",
+#     passwd="root",
+#     database="Recipease"
+# )
 
-cur = recipe_db.cursor()
+# cur = recipe_db.cursor()
+# recipe_db.commit()
+
+app = Flask(__name__)
+
+recipe_list = [
+    {
+    'Name' : 'Pork Chop Skillet',
+    'Ingredients' : '2 tablespoons butter\n4 boneless pork chops\n1 1/4 cups water\n1 (6 ounce) package long grain and wild rice mix with herbs\n1 (15.25 ounce) can corn, undrained\n1 (14.5 ounce) can diced Italian-style tomatoes, undrained',
+    'Instructions' : 'Heat butter in a skillet over medium heat; cook pork chops in the melted butter until cooked through, 10 to 15 minutes. Remove pork chops from skillet and cut into bite-sized pieces.\nPour water and long grain and wild rice mix with herbs into the same skillet; stir well. Layer pork chop pieces over rice. Pour corn over pork chops layer; top with tomatoes. Cover skillet and simmer until rice is tender and liquid is absorbed, 30 to 40 minutes.',
+    'Total_Time' : '55 m',
+    'Serving' : '4',
+    'Img_Name' : '3721817',
+    'Rating' : '4.55556'
+    },
+    {
+    'Name' : 'Overnight Chai Oatmeal',
+    'Ingredients' : '1 cup oats\n1 cup almond-coconut milk\n2 tablespoons chia seeds\n2 tablespoons shredded coconut\n1/4 teaspoon ground cardamom\n1/4 teaspoon ground cinnamon\n1/4 teaspoon vanilla extract\n1/4 teaspoon ground ginger\n1/4 teaspoon nutmeg',
+    'Instructions' : 'Combine oats, almond-coconut milk, chia seeds, coconut, cardamom, cinnamon, vanilla extract, ginger, and nutmeg in a bowl. Cover bowl with plastic wrap and refrigerate, 8 hours to overnight.',
+    'Total_Time' : '8 h 10 m',
+    'Serving' : '2',
+    'Img_Name' : '1122507',
+    'Rating' : '3.96429'
+    }
+]
+
+
+@app.route("/")
+@app.route("/home")
+def homepage():
+    return render_template('homepage.html')
+
+@app.route("/recipes")
+def recipes():
+    return render_template('recipes.html', recipe_list=recipe_list, title="Recipes")
+
 # cur.execute("CREATE TABLE recipes (ID INTEGER AUTO_INCREMENT PRIMARY KEY, Ingredients VARCHAR(1000), Instructions TEXT, Total_Time VARCHAR(7), Servings TINYINT(2), Img_Name INT, Rating FLOAT);")
 # cur.execute("ALTER TABLE recipes ADD Name VARCHAR(100);")
 # cur.execute("ALTER TABLE recipes CHANGE COLUMN Name Name varchar(100) AFTER ID;")
 # insert_command = "DROP TABLE recipes;"
 # cur.execute(insert_command)
 # insert_command = "INSERT INTO restrictions (Ingredient, Restriction_Type) VALUES (%s,%s);"
-def iterate_recipes_into_db():
-    with open("recipe_ids.txt","r") as file:
-        recipe_ids = [x[:-2].replace("/","-") for x in file.readlines()]
-    insert_command = "INSERT INTO recipes (Name, Ingredients, Instructions, Total_Time, Servings, Img_Name, Rating) VALUES (%s,%s,%s,%s,%d,%s,%.4f);"
-    print(recipe_ids)
-    recipe_details = []
-    # for recipe in recipe_ids:
-    #     recipe_details.append(((recipe),ingredients(recipe),instructions(recipe),total_time(recipe),serving(recipe),img_dl(recipe),rating(recipe)))
-    # print(recipe_setails)
-    # for i in x:
-    #     print(type(i))
-        # cur.execute(insert_command, recipe_details)
 
-iterate_recipes_into_db()
 
-recipe_db.commit()
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content">
+    <section class="recipe-list-item-box">
+      {% for recipe in recipe_list %}
+        <h1><a class="recipe-list-item-title" href="#">{{ recipe.Name }}</a></h1>
+        <div class="recipe-list-item-img">
+          <img src="{{ url_for('static', filename='img/' + recipe.Img_Name + '.jpg') }}" alt="{{ recipe.Name }}">
+        </div>
+        <div class="recipe-list-item-ingredients">
+          <p>{{ recipe.Ingredients }}</p>
+        </div>
+      {% endfor %}
+      </section>
+  </div>
+{% endblock content %}

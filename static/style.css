@@ -118,6 +118,28 @@ section {
   color: #8a4f7d;
 }
 
+.recipe-list-item-box {
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+
+.recipe-list-item-img {
+  width: 30%;
+  height: 180px;
+  float: left;
+}
+
+.recipe-list-item-img img {
+  height: 80%;
+}
+
+.recipe-list-item-ingredients {
+  margin-left: 30%;
+  height: 180px;
+}
+
 #welcome-section {
   margin-top: -60px;
 }

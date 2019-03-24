@@ -1,71 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-  <head>
-    <title>RecipEase</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-  </head>
-  <body>
-    <div id="navbar">
-      <div class="title">
-        <h1>RECIPEASE</h1>
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content" id="welcome-section">
+    <h1>Welcome!</h1>
+    <p>Welcome to RecipEase!<br>
+    lorem ipsum for the welcome section.</p>
+  </div>
+  <div class="content" id="about-recipease">
+    <h1>About RecipEase</h1>
+    <p><strong>RecipEase</strong> is an advanced search engine for recipes, that allows for a product-specific search and is dietary restriction oriented.</p>
+  </div>
+  <div class="content" id="recipes">
+    <h1>Recipes</h1>
+    <p>lorem ipsum</p>
+    <div class="project-tile">
+      <div class="project-box">
+        <a href="http://www.google.com/" target="_blank"><img src="https://www.catster.com/wp-content/uploads/2015/06/bengal-kittens-10.jpg"></img></a>
       </div>
-      <a class="navlink" href="#about-recipease">About RecipEase</a>
-      <a class="navlink" href="#recipes">My Recipes</a>
-      <a class="navbar-right" href="#">log in</a>
+      <div class="project-box" id="elrom">
+        <a href="http://www.google.com/" target="_blank"><img src="https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a_400x400.jpeg"></img></a>
     </div>
-    <div id="sidebar">
-      <input id="searchbar" type="text" placeholder="Broccoli, Garlic"><br>
-      <p>
-        <input type="checkbox" name="vegan" value="vegan"> vegan<br>
-        <input type="checkbox" name="vegetarian" value="vegetarian"> vegetarian<br>
-        <input type="checkbox" name="pescatarian" value="pescatarian"> pescatarian<br>
-        <input type="checkbox" name="kosher" value="kosher"> kosher<br>
-        <input type="checkbox" name="halal" value="halal"> halal<br>
-        <input id="something-free" type="text" placeholder="gluten"><a href="#"> free</a><br>
-        <input id="search-button" type="submit" name="search" value="search">
-      </p>
+      <div class="project-box" id="bftv">
+        <a href="http://www.google.com/" target="_blank"><img src="https://www.thesprucepets.com/thmb/UNkESGbVGGKprH7PAJfJMSOxeIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/28153129_1787532741290933_404125326990376960_n-5a9320dda18d9e003727ca39.jpg"></img></a>
     </div>
-    <main>
-      <div class="content" id="welcome-section">
-        <h1>Welcome!</h1>
-        <p>Welcome to RecipEase!<br>
-        lorem ipsum for the welcome section.</p>
-      </div>
-      <div class="content" id="about-recipease">
-        <h1>About RecipEase</h1>
-        <p><strong>RecipEase</strong> is an advanced search engine for recipes, that allows for a product-specific search and is dietary restriction oriented.</p>
-      </div>
-      <div class="content" id="recipes">
-        <h1>Recipes</h1>
-        <p>lorem ipsum</p>
-        <div class="project-tile">
-          <div class="project-box">
-            <a href="http://www.google.com/" target="_blank"><img src="https://www.catster.com/wp-content/uploads/2015/06/bengal-kittens-10.jpg"></img></a>
-          </div>
-          <div class="project-box" id="elrom">
-            <a href="http://www.google.com/" target="_blank"><img src="https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a_400x400.jpeg"></img></a>
-        </div>
-          <div class="project-box" id="bftv">
-            <a href="http://www.google.com/" target="_blank"><img src="https://www.thesprucepets.com/thmb/UNkESGbVGGKprH7PAJfJMSOxeIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/28153129_1787532741290933_404125326990376960_n-5a9320dda18d9e003727ca39.jpg"></img></a>
-        </div>
-      </div>
-      <div class="content">
-        <p>
-          Lorem ipsum dolor sit amet, duo an euripidis intellegebat. Option nostrum partiendo cu pri, eius noster ad cum, an per solet impedit tractatos. An scaevola constituam mea, nominavi apeirian persequeris id vix, viris deseruisse et vis. Nam ne graecis eloquentiam intellegebat. Has mundi atomorum eu, et vis soleat aperiam accumsan.
-          <br><br>
-          Sint nulla laboramus vis ne. Eos omittam appareat salutatus te, vis an corrumpit torquatos scriptorem. Te vis enim civibus. At ius duis inermis pertinacia. Eam vidit vivendum contentiones te.
-          <br><br>
-          Per ut lobortis eloquentiam, cu dolor partem sententiae nec. Ad nec nullam qualisque similique, id incorrupte theophrastus signiferumque qui. At doctus quaerendum vis, ne molestiae laboramus pri. Enim suavitate id sed, ad possim euripidis nam. Duo vide fabulas appellantur ex, mei aliquip diceret id.
-          <br><br>
-          Falli vocibus eum ne. Vis ut sint urbanitas conclusionemque. Ex duo inermis omnesque hendrerit. Omnes tibique consectetuer vel te, eu eos iudico facilis. Eu vim dico dicam verterem, decore maiestatis sea eu, vix ex porro veritus interesset. Et vis graeco aperiri conceptam.
-          <br><br>
-          Cu essent delenit patrioque est, vim phaedrum dissentias in. No alia reformidans his. Brute postea ad eos, per summo scaevola no. Pro an nemore aeterno equidem, mei aeque viris nonumes ut. Oblique eloquentiam has ne, pro ut utroque lobortis, sed adhuc nemore phaedrum ut. No usu reque efficiantur, dolor numquam tractatos id sea. Eam cu dolor iudico.
-        </p>
-      </div>
-    </main>
-  </body>
-  <footer>
-    <p>shalomlom compadre</p>
-  </footer>
-</html>
+  </div>
+  <div class="content">
+    <p>
+      Lorem ipsum dolor sit amet, duo an euripidis intellegebat. Option nostrum partiendo cu pri, eius noster ad cum, an per solet impedit tractatos. An scaevola constituam mea, nominavi apeirian persequeris id vix, viris deseruisse et vis. Nam ne graecis eloquentiam intellegebat. Has mundi atomorum eu, et vis soleat aperiam accumsan.
+      <br><br>
+      Sint nulla laboramus vis ne. Eos omittam appareat salutatus te, vis an corrumpit torquatos scriptorem. Te vis enim civibus. At ius duis inermis pertinacia. Eam vidit vivendum contentiones te.
+      <br><br>
+      Per ut lobortis eloquentiam, cu dolor partem sententiae nec. Ad nec nullam qualisque similique, id incorrupte theophrastus signiferumque qui. At doctus quaerendum vis, ne molestiae laboramus pri. Enim suavitate id sed, ad possim euripidis nam. Duo vide fabulas appellantur ex, mei aliquip diceret id.
+      <br><br>
+      Falli vocibus eum ne. Vis ut sint urbanitas conclusionemque. Ex duo inermis omnesque hendrerit. Omnes tibique consectetuer vel te, eu eos iudico facilis. Eu vim dico dicam verterem, decore maiestatis sea eu, vix ex porro veritus interesset. Et vis graeco aperiri conceptam.
+      <br><br>
+      Cu essent delenit patrioque est, vim phaedrum dissentias in. No alia reformidans his. Brute postea ad eos, per summo scaevola no. Pro an nemore aeterno equidem, mei aeque viris nonumes ut. Oblique eloquentiam has ne, pro ut utroque lobortis, sed adhuc nemore phaedrum ut. No usu reque efficiantur, dolor numquam tractatos id sea. Eam cu dolor iudico.
+    </p>
+  </div>
+{% endblock content %}

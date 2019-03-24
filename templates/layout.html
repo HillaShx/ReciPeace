@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <head>
+    {% if title %}
+    <title>RecipEase - {{ title }}</title>
+    {% else %}
+    <title>RecipEase</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div id="navbar">
+      <div class="title">
+        <h1>RECIPEASE</h1>
+      </div>
+      <a class="navlink" href="#about-recipease">About RecipEase</a>
+      <a class="navlink" href="#recipes">My Recipes</a>
+      <a class="navbar-right" href="#">log in</a>
+    </div>
+    <div id="sidebar">
+      <input id="searchbar" type="text" placeholder="Broccoli, Garlic"><br>
+      <p>
+        <input type="checkbox" name="vegan" value="vegan"> vegan<br>
+        <input type="checkbox" name="vegetarian" value="vegetarian"> vegetarian<br>
+        <input type="checkbox" name="pescatarian" value="pescatarian"> pescatarian<br>
+        <input type="checkbox" name="kosher" value="kosher"> kosher<br>
+        <input type="checkbox" name="halal" value="halal"> halal<br>
+        <input id="something-free" type="text" placeholder="gluten"><a href="#"> free</a><br>
+        <input id="search-button" type="submit" name="search" value="search">
+      </p>
+    </div>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+  <footer>
+    <p>shalomlom compadre</p>
+  </footer>
+</html>
