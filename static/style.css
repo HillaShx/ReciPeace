@@ -183,3 +183,8 @@ main {
     position: block;
   }
 }
+
+footer {
+  display: block;
+  bottom: 0;
+}

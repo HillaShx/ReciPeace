@@ -1,17 +1,20 @@
 # import mysql.connector
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
+from forms import RegistrationForm, LoginForm
 
 """
 ===MYSQL===
 
-to make a new mysql container
+$$to make a new mysql container$$
 docker run --detach --name=test-mysql -v /home/hillash/Documents/SheCodes-Project/mysql-local:/var/lib/mysql --env="MYSQL_ROOT_PASSWORD=root" --publish 3306:3306 mysql
 
-to run the mysql container
+$$to run the mysql container$$
 docker container start e2
+('e2' or whatever the first 2 characters of the container id are)
 
-to connect to the mysql container bash
+$$to connect to the mysql container bash$$
 docker exec -it e2 /bin/bash
+('e2' or whatever the first 2 characters of the container id are)
 
 ===FLASK===
 export FLASK_APP=main.py
@@ -30,6 +33,8 @@ flask run
 # recipe_db.commit()
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = '07979268f0f831f0c013f6b04632d962'
 
 recipe_list = [
     {
@@ -69,7 +74,18 @@ def recipes():
 # cur.execute(insert_command)
 # insert_command = "INSERT INTO restrictions (Ingredient, Restriction_Type) VALUES (%s,%s);"
 
+@app.route("/register", methods=["GET","POST"])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('homepage'))
+    return render_template('register.html', form=form, title="Register")
 
+@app.route("/Login")
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form, title="Login")
 
 if __name__ == '__main__':
     app.run(debug=True)
