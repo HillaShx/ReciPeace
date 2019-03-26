@@ -14,18 +14,47 @@ section {
   padding: 20px 0 0 20px;
 }
 
+.alert-success {
+  padding: 12px;
+  background-color: #80ff80;
+  opacity: 0.1;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.alert-info {
+  padding: 12px;
+  background-color: #66ccff;
+  opacity: 0.8;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.alert-danger {
+  padding: 12px;
+  background-color: #ff9999;
+  opacity: 0.8;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 14px;
+}
+
 #searchbar {
   width: 140px;
 }
 
 #search-button {
-  background-color: #a2708a;
+  background-color: #c3d2d5;
   padding: 3px 9px;
   border-radius: 6px;
 }
 
 #search-button:hover {
-  background-color: #c3d2d5;
+  background-color: #a2708a;
 }
 
 .title {
