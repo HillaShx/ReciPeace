@@ -14,9 +14,9 @@
       <div class="title">
         <h1>RECIPEASE</h1>
       </div>
-      <a class="navlink" href="#about-recipease">About RecipEase</a>
-      <a class="navlink" href="#recipes">My Recipes</a>
-      <a class="navbar-right" href="#">log in</a>
+      <a class="navlink" href="{{url_for('about')}}">About RecipEase</a>
+      <a class="navlink" href="{{url_for('recipes')}}">My Recipes</a>
+      <a class="navbar-right" href="{{url_for('login')}}">log in</a>
     </div>
     <div id="sidebar">
       <input id="searchbar" type="text" placeholder="Broccoli, Garlic"><br>
