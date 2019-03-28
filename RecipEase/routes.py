@@ -59,6 +59,7 @@ def recipes():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        # form.validate_username(form.username.data)
         flash(f'Account created for {form.username.data}! You are now able to log in!', 'success')
         insert(form.username.data,form.email.data,form.password.data,form.pic_filename)
         return redirect(url_for('login'))

@@ -28,11 +28,11 @@ def read(user_id):
     try:
         read_command = f"SELECT Username, Email, AES_DECRYPT(Password,'PaSswOrD'), Pic_filename FROM users WHERE ID = {user_id};"
         cur.execute(read_command)
-        records = cur.fetchall()
-        print(f"Username = {records[0][0]}")
-        print(f"Email = {records[0][1]}")
-        print(f"Password = {records[0][2]}")
-        print(f"Pic_filename = {records[0][3]}")
+        record = cur.fetchone()
+        print(f"Username = {record[0]}")
+        print(f"Email = {record[1]}")
+        print(f"Password = {record[2]}")
+        print(f"Pic_filename = {record[3]}")
         print("")
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
