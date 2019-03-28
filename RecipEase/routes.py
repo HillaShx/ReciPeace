@@ -1,6 +1,17 @@
 from flask import render_template, url_for, flash, redirect
 from RecipEase import app
 from RecipEase.forms import RegistrationForm, LoginForm
+from RecipEase.mysql_operations import insert,read
+import mysql.connector
+
+recipe_db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="root",
+    database="Recipease"
+)
+
+cur = recipe_db.cursor()
 
 recipe_list = [
     {
@@ -48,8 +59,9 @@ def recipes():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('homepage'))
+        flash(f'Account created for {form.username.data}! You are now able to log in!', 'success')
+        insert(form.username.data,form.email.data,form.password.data,form.pic_filename)
+        return redirect(url_for('login'))
     return render_template('register.html', form=form, title="Register")
 
 @app.route("/login", methods=["GET","POST"])

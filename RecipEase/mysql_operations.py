@@ -13,7 +13,7 @@ cur = recipe_db.cursor()
 def insert(username,email,password,pic_filename):
 # writes user data into users table
     try:
-        insert_command = "INSERT INTO users (Username, Email, Password,Pic_filename) VALUES (%s,%s,AES_ENCRYPT(%s,'PaSswOrD'),%s);"
+        insert_command = "INSERT INTO users (Username, Email, Password, Pic_filename) VALUES (%s,%s,AES_ENCRYPT(%s,'PaSswOrD'),%s);"
         cur.execute(insert_command,(username,email,password,pic_filename))
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
@@ -42,9 +42,7 @@ def read(user_id):
     finally:
         recipe_db.commit()
 
-users = [
-            ('efrohi', 'ef@ro.hi', 'p4ss', '2340'),
-            ('hillash', 'hil@la.sh', 'p0ss', '5490')
-        ]
-
-read(1)
+# users = [
+#             ('efrohi', 'ef@ro.hi', 'p4ss'),
+#             ('hillash', 'hil@la.sh', 'p0ss')
+#         ]
