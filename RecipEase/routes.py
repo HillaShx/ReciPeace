@@ -1,15 +1,10 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, Markup
 from RecipEase import app
 from RecipEase.forms import RegistrationForm, LoginForm
 from RecipEase.mysql_operations import insert,read
-import mysql.connector
+# import mysql.connector
+from RecipEase import recipe_db
 
-recipe_db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="root",
-    database="Recipease"
-)
 
 cur = recipe_db.cursor()
 
@@ -59,18 +54,28 @@ def recipes():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        # form.validate_username(form.username.data)
-        flash(f'Account created for {form.username.data}! You are now able to log in!', 'success')
-        insert(form.username.data,form.email.data,form.password.data,form.pic_filename)
-        return redirect(url_for('login'))
+        if form.validate_username(form.username.data) and form.validate_email(form.email.data):
+            # print("register:",type(form.username.data))
+            flash(f'Account created for {form.username.data}! You are now able to log in!', 'success')
+            insert(form.username.data,form.email.data,form.password.data,form.pic_filename)
+            return redirect(url_for('login'))
+        elif not form.validate_username(form.username.data):
+            flash(f'There is already an account using this username. Please choose a different one.', 'danger')
+        elif not form.validate_email(form.email.data):
+            flash(Markup(f'<div class="alert-danger">There is already an account using this email address. <a href="{{ url_for("forgot_password.html") }}"  class="flash-link">Forgot your password?</a></div>'))
     return render_template('register.html', form=form, title="Register")
 
 @app.route("/login", methods=["GET","POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == "admin@blog.com" and form.password.data == "password":
-            flash(f'You are now logged in! Welcome, {form.email.data}!', 'success')
+        is_valid = form.validate_login_info(form.email.data,form.password.data)[0]
+        if is_valid:
+            curr_username = form.validate_login_info(form.email.data,form.password.data)[1]
+            # print(password_is_valid)
+            # print(curr_username)
+            # if form.validate_email_login(form.email.data) and password_is_valid:
+            flash(f'You are now logged in! Welcome, {curr_username}!', 'success')
             return redirect(url_for('homepage'))
         else:
             flash(f'Login unsuccessful! Please check your email and password.', 'danger')

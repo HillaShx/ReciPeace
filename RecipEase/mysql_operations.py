@@ -1,11 +1,4 @@
-import mysql.connector
-
-recipe_db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="root",
-    database="Recipease"
-)
+from RecipEase import recipe_db
 
 cur = recipe_db.cursor()
 # recipe_db.commit()

@@ -1,5 +1,13 @@
 # import mysql.connector
 from flask import Flask
+import mysql.connector
+
+recipe_db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="root",
+    database="Recipease"
+)
 
 """
 ===MYSQL===
